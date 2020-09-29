@@ -50,24 +50,37 @@ function mainMenu() {
     // Take action based on menu selection
     if (selection == 'first40') {
         // Set the grade of the first student to 40.
+        grades[6] = 40;
         outputEl.innerHTML = 'First grade to 40';
     } else if (selection == 'last50') {
         // Set the grade of the last student to 50. 
+        grades[3] = 50;
         outputEl.innerHTML = 'Last grade to 50';
     } else if (selection == 'random100') {
         // Set the grade of a random student to 100.
+        let i = Math.floor(Math.random() * 11 - 1);
+        grades[i] = 100
         outputEl.innerHTML = 'Random grade to 100';
     } else if (selection == 'addRandom') {
         // Add a random grade between 0 and 100 to the end of the array.
+        let i = Math.floor(Math.random() * 101 - 1);
+        grades.push(i);
         outputEl.innerHTML = 'Add random grade';
     } else if (selection == 'removeLast') {
         // Remove the last grade.
+        grades.pop();
         outputEl.innerHTML = 'Remove the last grade';
     } else if (selection == 'count50') {
         // Count how many grades are below 50.  Output the result.
+
         outputEl.innerHTML = 'Count grades below 50';
     } else if (selection == 'change50') {
         // Change all grades that are below 50 to be equal to 50.
+        for (let i = 0; i < myArray.length; i++) {
+            if (myArray[i] < 50) {
+                myArray[i] = 50
+            }
+        }
         outputEl.innerHTML = 'Change low grades to 50';
     } else if (selection == 'increase10') {
         // Increase each grade by 10%.

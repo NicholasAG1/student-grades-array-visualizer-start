@@ -50,7 +50,12 @@ function mainMenu() {
     // Take action based on menu selection
     if (selection == 'first40') {
         // Set the grade of the first student to 40.
-        grades[6] = 40;
+        for (let i = 0; i < grades.length; i++) {
+            if (grades[i] == Math.max(grades)) {
+                grades[i] = 40
+            }
+        }
+        
         outputEl.innerHTML = 'First grade to 40';
     } else if (selection == 'last50') {
         // Set the grade of the last student to 50. 
@@ -72,24 +77,44 @@ function mainMenu() {
         outputEl.innerHTML = 'Remove the last grade';
     } else if (selection == 'count50') {
         // Count how many grades are below 50.  Output the result.
-
-        outputEl.innerHTML = 'Count grades below 50';
+        let num = 0;
+        for (let i = 0; i < grades.lenght; i++) {  
+            if (grades[i] < 50) { 
+                num++
+                i--
+            }
+        }
+        outputEl.innerHTML = 'Count grades below 50: ' + num + '';
     } else if (selection == 'change50') {
         // Change all grades that are below 50 to be equal to 50.
-        for (let i = 0; i < myArray.length; i++) {
-            if (myArray[i] < 50) {
-                myArray[i] = 50
+        for (let i = 0; i < grades.length; i++) {
+            if (grades[i] < 50) {
+                grades[i] = 50
             }
         }
         outputEl.innerHTML = 'Change low grades to 50';
     } else if (selection == 'increase10') {
         // Increase each grade by 10%.
+        for (let i = 0; i < grades.length; i++) {
+            
+
+        }
         outputEl.innerHTML = 'Increase all grades by 10%';
     } else if (selection == 'decrease10') {
         // Decrease each grade by 10%.
+        for (let i = 0; i < grades.length; i++) {
+            
+
+        }
         outputEl.innerHTML = 'Decrease all grades by 10%';
     } else if (selection == 'remove50') {
         // Remove all grades that are below 50.
+        for (let i = 0; i < grades.length; i++) {
+            if (grades[i] < 50) {
+                grades.splice(i, 1)
+                i--
+            }
+        }
         outputEl.innerHTML = 'Remove grades below 50';
     } 
 }

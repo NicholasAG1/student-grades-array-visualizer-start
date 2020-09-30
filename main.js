@@ -50,11 +50,8 @@ function mainMenu() {
     // Take action based on menu selection
     if (selection == 'first40') {
         // Set the grade of the first student to 40.
-        for (let i = 0; i < grades.length; i++) {
-            if (grades[i] == Math.max(grades)) {
-                grades[i] = 40
-            }
-        }
+        let i = Math.max(grades) 
+            grades[i] = 40
         
         outputEl.innerHTML = 'First grade to 40';
     } else if (selection == 'last50') {
@@ -63,7 +60,7 @@ function mainMenu() {
         outputEl.innerHTML = 'Last grade to 50';
     } else if (selection == 'random100') {
         // Set the grade of a random student to 100.
-        let i = Math.floor(Math.random() * 11 - 1);
+        let i = Math.floor(Math.random() * 12 - 1);
         grades[i] = 100
         outputEl.innerHTML = 'Random grade to 100';
     } else if (selection == 'addRandom') {
@@ -80,7 +77,7 @@ function mainMenu() {
         let num = 0;
         for (let i = 0; i < grades.lenght; i++) {  
             if (grades[i] < 50) { 
-                num++
+                num + 1
                 i--
             }
         }

@@ -50,13 +50,12 @@ function mainMenu() {
     // Take action based on menu selection
     if (selection == 'first40') {
         // Set the grade of the first student to 40.
-        let i = Math.max(grades) 
-            grades[i] = 40
+        grades[0] = 40
         
         outputEl.innerHTML = 'First grade to 40';
     } else if (selection == 'last50') {
         // Set the grade of the last student to 50. 
-        grades[3] = 50;
+        grades[grades.length - 1] = 50;
         outputEl.innerHTML = 'Last grade to 50';
     } else if (selection == 'random100') {
         // Set the grade of a random student to 100.
@@ -75,10 +74,9 @@ function mainMenu() {
     } else if (selection == 'count50') {
         // Count how many grades are below 50.  Output the result.
         let num = 0;
-        for (let i = 0; i < grades.lenght; i++) {  
+        for (let i = 0; i < grades.length; i++) {  
             if (grades[i] < 50) { 
-                num + 1
-                i--
+                num ++
             }
         }
         outputEl.innerHTML = 'Count grades below 50: ' + num + '';
@@ -93,15 +91,13 @@ function mainMenu() {
     } else if (selection == 'increase10') {
         // Increase each grade by 10%.
         for (let i = 0; i < grades.length; i++) {
-            
-
+               grades[i] = grades[i] + ((grades[i]/100)*10)
         }
         outputEl.innerHTML = 'Increase all grades by 10%';
     } else if (selection == 'decrease10') {
         // Decrease each grade by 10%.
         for (let i = 0; i < grades.length; i++) {
-            
-
+            grades[i] = grades[i] - ((grades[i]/100)*10)
         }
         outputEl.innerHTML = 'Decrease all grades by 10%';
     } else if (selection == 'remove50') {
